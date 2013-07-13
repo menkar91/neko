@@ -2,14 +2,11 @@ $(function(){
 	/* show Menu */
 	$("#function-menu").click(function(){
 		$(document).ready(showMenuApp);
+		$("#search").focus();
 		return false;
 	});	
 
 	/* hide Menu */	
-	$(".hide").click(function(){
-		$(document).ready(hideAll);
-		return false;
-	});
 	$('.show-menu').click(function(e){
 		e.stopPropagation();
 	});
@@ -19,12 +16,32 @@ $(function(){
    	    	return false;
 	});
 	/* detected key ESC=27 and hide menu */
-	$(document).keydown(function(tecla){
-   		if (tecla.keyCode == 27) { 
+	$(document).keyup(function(key){
+   		if (key.keyCode == 27) { 
    	    	$(document).ready(hideAll);
+   	    	$("#search").blur();
    	    	return false;
    		}
 	});
+
+	/* search - key bakescape=8 */
+	$("#search").focus(function(){
+		$(document).keyup(function(key){
+	    	if($("#search").val().length != 0) {
+	    		$("#clear-search").addClass("active");
+	    	}
+			if($("#search").val().length == 0) {
+    			$("#clear-search").removeClass("active");
+	    	}
+		});
+	});
+	/* clear-search */
+	$("#clear-search").click(function(){
+		$("#search").val("");
+		$("#search").focus();
+		$("#clear-search").removeClass("active");
+		return false;
+	});	
 
 	/* get date time */
 	$.fn.clock = function(o) {
@@ -62,6 +79,13 @@ $(function(){
 	      setInterval(mHF,1000);     
 	    });
 	};
+	
+	/* Menu Context */
+	$(document).ready(function(){
+		$(document).bind("contextmenu",function(e){
+			return false;
+		});
+	});
 
 });
 

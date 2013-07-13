@@ -8,7 +8,7 @@
 	<meta name="keywords" content="Neko, Neko Desktop, Desktop html5, Desktop Linux html5">
 	<meta name="author" content="Menkar91" />
 	<link type="text/css" rel="stylesheet/less" href="base.less">
-	<link type="text/css" rel="stylesheet" href="themes/light/style.css">
+	<link type="text/css" rel="stylesheet/less" href="themes/light/style.less">
 	<script type="text/javascript">
     less = {
         env: "development", // or "production"
@@ -21,7 +21,7 @@
         relativeUrls: false,// whether to adjust url's to be relative
                             // if false, url's are already relative to the
                             // entry less file
-        rootpath: ":/a.com/"// a path to add on to the start of every url
+        rootpath: ""// a path to add on to the start of every url
                             //resource
     };
 	</script>
@@ -41,8 +41,10 @@
 			</div><!-- top-bar -->
 		</div>
 		<div id="esconder" class="menu-app show-menu left" rel="lock-hide">
-			<span class="close"><a class="hide right" href="#">Cerrar</a></span>
-			<input id="search" class="search block" type="text" placeholder="Buscar">
+			<div class="search block">
+				<input id="search" type="text" placeholder="Buscar">
+				<a id="clear-search" href="#">clear</a>
+			</div>
 			<h2>Aplicaciones</h2>
 		</div>
 	</div>

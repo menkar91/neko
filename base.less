@@ -5,6 +5,16 @@
 @color4: #CCCCCC;
 @color5: #FFFFFF;
 
+@icon: "fonts/icons/";
+.icon (@path) {
+    background-image: url("@{icon}@{path}");
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: auto 200%;
+    color: transparent;
+    text-indent: -9999px;
+}
+
 * {
     -moz-user-select: none;
 	cursor: default;
@@ -12,7 +22,6 @@
     outline: medium none;
 }
 body {
-	background: url("background/bg.jpg") no-repeat fixed center center / cover @color4;
     color: #333333;
     font: normal 13px Roboto, arial, sans-serif;
     height: 100%;
@@ -47,27 +56,51 @@ input[type="text"] {
     width: 100%;
 }
 .search {
-    border: none;
-    background: transparent;
-    border-bottom: 1px solid #CCCCCC;
-    font-size: 1.8em;
-    &:focus { 
-        outline: none;
-        border-color: #51CBEE;
+    * {
+        font-size: 1.8em;
+    }
+    input {
+        border: none;
+        background: transparent;
+        border-bottom: 1px solid #CCCCCC;
+        max-width: 300px;
+        padding-right: 32px;
+        &:focus { 
+            outline: none;
+            border-color: @color5;
+        }
+    }
+    a {
+        margin-left: -44px;
+        .icon(@path: "32x32/erase.png")
+    }
+    a:hover, a:focus, a.active {
+        background-position: center bottom;
     }
 }
 
 #top-bar {
-	background: none repeat scroll 0 0 @color5;
-	box-shadow: 0 0 5px @color1;
+    background: @color4;
     height: 45px;
     line-height: 40px;
     width: 100%;
     & > * {
+        background-color: transparent;
         display: inline-block;
         font-weight: bold;
         height: 45px;
         text-align: center;
+    }
+    #menu-top-bar {
+        width: 55px;
+        a {
+            height: 100%;
+            width: 100%;
+            .icon(@path: "menu.png")
+        }
+        a:hover, a:focus {
+            background-position: center bottom;
+        }
     }
     #clock {
         line-height: 1.2;
@@ -75,16 +108,7 @@ input[type="text"] {
         width: 80px;
     }
 }
-#menu-top-bar {
-    float: left;
-    width: 55px;
-    a {
-        background-color: @color1;
-        height: 100%;
-        text-indent: -9999px;
-        width: 100%;
-    }
-}
+
 .show-menu {
     background-color: @color1;
     display: none;
@@ -95,10 +119,5 @@ input[type="text"] {
     top: 0;
     * {
         color: white;
-    }
-    span.close {
-        position: absolute;
-        right: 10px;
-        top: 10px;
     }
 }
