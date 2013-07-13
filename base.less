@@ -1,0 +1,104 @@
+@color0: #000000;
+@color1: #333333;
+@color2: #666666;
+@color3: #999999;
+@color4: #CCCCCC;
+@color5: #FFFFFF;
+
+* {
+    -moz-user-select: none;
+	cursor: default;
+	margin: 0;
+    outline: medium none;
+}
+body {
+	background: url("background/bg.jpg") no-repeat fixed center center / cover @color4;
+    color: #333333;
+    font: normal 13px Roboto, arial, sans-serif;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6, p {
+    font-weight: lighter;    
+}
+h2 {
+    font-size: 1.7em;
+    margin-top: 20px;
+}
+input[type="text"] {
+    cursor: text;
+}
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+.block {
+    display: block;
+}
+#desktop {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+.search {
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid #CCCCCC;
+    font-size: 1.8em;
+    &:focus { 
+        outline: none;
+        border-color: #51CBEE;
+    }
+}
+
+#top-bar {
+	background: none repeat scroll 0 0 @color5;
+	box-shadow: 0 0 5px @color1;
+    height: 45px;
+    line-height: 40px;
+    width: 100%;
+    & > * {
+        display: inline-block;
+        font-weight: bold;
+        height: 45px;
+        text-align: center;
+    }
+    #clock {
+        line-height: 1.2;
+        padding: 7px 2px;
+        width: 80px;
+    }
+}
+#menu-top-bar {
+    float: left;
+    width: 55px;
+    a {
+        background-color: @color1;
+        height: 100%;
+        text-indent: -9999px;
+        width: 100%;
+    }
+}
+.show-menu {
+    background-color: @color1;
+    display: none;
+    height: 100%;
+    max-width: 350px;
+    padding: 35px 25px;
+    position: absolute;
+    top: 0;
+    * {
+        color: white;
+    }
+    span.close {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+    }
+}

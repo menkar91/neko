@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<title>Neko Desktop</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Escritorio para linux basado en html5">
+	<meta name="keywords" content="Neko, Neko Desktop, Desktop html5, Desktop Linux html5">
+	<meta name="author" content="Menkar91" />
+	<link type="text/css" rel="stylesheet/less" href="base.less">
+	<link type="text/css" rel="stylesheet" href="themes/light/style.css">
+	<script type="text/javascript">
+    less = {
+        env: "development", // or "production"
+        async: false,       // load imports async
+        fileAsync: false,   // load imports async when in a page under
+                            // a file protocol
+        poll: 1000,         // when in watch mode, time in ms between polls
+        functions: {},      // user functions, keyed by name
+        dumpLineNumbers: "comments", // or "mediaQuery" or "all"
+        relativeUrls: false,// whether to adjust url's to be relative
+                            // if false, url's are already relative to the
+                            // entry less file
+        rootpath: ":/a.com/"// a path to add on to the start of every url
+                            //resource
+    };
+	</script>
+	<script type="text/javascript" src="scripts/less.min.js"></script><!-- less-1.4.1 -->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="scripts/base.js"></script>
+</head>
+<body>
+	<div id="desktop">
+		<div class="home">
+			<div id="top-bar">
+				<div id="menu-top-bar"><a href="#" id="function-menu" class="block">Menu</a></div>
+				<div id="clock" class="right"><script type="text/javascript">	$(document).ready(function(){	$('#clock').clock();	});	</script></div>
+			</div><!-- top-bar -->
+		</div>
+		<div id="esconder" class="menu-app show-menu left" rel="lock-hide">
+			<span class="close"><a class="hide right" href="#">Cerrar</a></span>
+			<input id="search" class="search block" type="text" placeholder="Buscar">
+			<h2>Aplicaciones</h2>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+#menu-top-bar a {
+    background: url("menu.svg") no-repeat scroll center center / 44px auto #CCCCCC;
+}
+#menu-top-bar a:hover, #menu-top-bar a:focus {
+    background-color: #EEEEEE;
+}
