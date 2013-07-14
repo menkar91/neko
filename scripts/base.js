@@ -11,7 +11,7 @@ $(function(){
 		e.stopPropagation();
 	});
 	$(document).click(function(){
-		$('#desktop > .show-menu')
+		$('#desktop-wrapper > .show-menu')
 			$(document).ready(hideAll);
    	    	return false;
 	});
@@ -41,7 +41,22 @@ $(function(){
 		$("#search").focus();
 		$("#clear-search").removeClass("active");
 		return false;
-	});	
+	});
+
+	/* launcher */
+	$(".launcher").click(function(e){
+		$(document).ready(hideAll);
+		var thread = Math.floor(Math.random() * (9999 - 99 + 1)) + 99;
+		var rel = $(this).attr("rel");
+		var name = $(this).attr("name");
+		var jsURL = '<script type="text/javascript" src="scripts/thread.js"></script>';
+		var jIcon = '<a id="'+thread+'" rel="'+rel+'" class="launcher-bar" href="#">'+name+'</a>';
+		var jWindow = '<div id="'+thread+'" rel="'+rel+'" class="window w'+thread+'"><header><p class="title">'+name+'</p><div class="option"><a class="min" href="#">_</a><a class="max" href="#">O</a><a class="close" href="#">x</a></div></header><div class="content"></div></div>';
+		$("#launcher-bar").append(jIcon);
+		$("#desktop").append(jWindow);
+		$("#desktop").append(jsURL);
+		return false;
+	});
 
 	/* get date time */
 	$.fn.clock = function(o) {

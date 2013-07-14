@@ -28,24 +28,31 @@
 	<script type="text/javascript" src="scripts/less.min.js"></script><!-- less-1.4.1 -->
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+	<!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" /> -->
 	<script type="text/javascript" src="scripts/base.js"></script>
 </head>
 <body>
-	<div id="desktop">
-		<div class="home">
-			<div id="top-bar">
-				<div id="menu-top-bar"><a href="#" id="function-menu" class="block">Menu</a></div>
-				<div id="clock" class="right"><script type="text/javascript">
-					$(document).ready(function(){ $('#clock').clock(); });
-				</script></div>
-			</div><!-- top-bar -->
+	<div id="desktop-wrapper">
+		<div id="top-bar">
+			<div id="menu-top-bar" class="left"><a href="#" id="function-menu" class="block">Menu</a></div>
+			<div id="launcher-bar"></div>
+			<div id="clock" class="right"><script type="text/javascript">
+				$(document).ready(function(){ $('#clock').clock(); });
+			</script></div>
+		</div><!-- top-bar -->
+		<div id="desktop">
+			
 		</div>
 		<div id="esconder" class="menu-app show-menu left" rel="lock-hide">
-			<div class="search block">
-				<input id="search" type="text" placeholder="Buscar">
-				<a id="clear-search" href="#">clear</a>
+			<div class="transition">
+				<div class="search block">
+					<input id="search" type="text" placeholder="Buscar">
+					<a id="clear-search" href="#">clear</a>
+				</div>
+				<h2>Aplicaciones</h2>
+				<h3><a id="firefox" name="Firefox" class="launcher" href="#">Firefox</a></h3>
+				<h3><a id="chrome" name="Chrome" class="launcher" href="#">Chrome</a></h3>
 			</div>
-			<h2>Aplicaciones</h2>
 		</div>
 	</div>
 </body>

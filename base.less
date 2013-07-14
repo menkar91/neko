@@ -17,7 +17,6 @@
 
 * {
     -moz-user-select: none;
-	cursor: default;
 	margin: 0;
     outline: medium none;
 }
@@ -30,6 +29,7 @@ body {
 }
 a {
     text-decoration: none;
+    cursor: default;
 }
 h1, h2, h3, h4, h5, h6, p {
     font-weight: lighter;    
@@ -50,10 +50,114 @@ input[type="text"] {
 .block {
     display: block;
 }
-#desktop {
+.transition * {
+    transition: all 0.3s ease;
+}
+.active {
+    z-index: 1 !important;
+}
+
+.ui-resizable {
+  position: relative;
+}
+.ui-resizable-handle {
+  display: block;
+  font-size: 0.1px;
+  position: absolute;
+}
+.ui-resizable-n {
+  cursor: n-resize;
+  height: 7px;
+  left: 0;
+  top: -33px;
+  width: 100%;
+}
+.ui-resizable-e {
+  cursor: e-resize;
+  height: 100%;
+  right: -3px;
+  top: 0;
+  width: 7px;
+}
+.ui-resizable-s {
+  bottom: -3px;
+  cursor: s-resize;
+  height: 7px;
+  left: 0;
+  width: 100%;
+}
+.ui-resizable-w {
+  cursor: w-resize;
+  height: 100%;
+  left: -3px;
+  top: 0;
+  width: 7px;
+}
+.ui-resizable-ne {
+  cursor: ne-resize;
+  height: 9px;
+  right: -3px;
+  top: -33px;
+  width: 9px;
+}
+.ui-resizable-se {
+  bottom: -3px;
+  cursor: se-resize;
+  height: 9px;
+  right: -3px;
+  width: 9px;
+}
+.ui-resizable-sw {
+  bottom: -3px;
+  cursor: sw-resize;
+  height: 9px;
+  left: -3px;
+  width: 9px;
+}
+.ui-resizable-nw {
+  cursor: nw-resize;
+  height: 9px;
+  left: -3px;
+  top: -33px;
+  width: 9px;
+}
+.ui-icon {
+  height: 16px;
+  width: 16px;
+}
+
+#desktop-wrapper {
+    background-color: @color4;
     height: 100%;
     position: absolute;
     width: 100%;
+    #desktop {
+        height: 100%;
+        .window {
+            background: #AAA;
+            padding: 3px;
+            position: absolute;
+            header {
+                height: 30px;
+                width: 100%;
+                * {
+                    display: inline-block;
+                }
+                p.title {
+                    
+                }
+                .option {
+                    float: right;
+                }
+            }
+            .content {
+                background: none repeat scroll 0 0 gray;
+                display: block;
+                height: 300px;
+                width: 700px;
+            }
+        }
+    }
 }
 .search {
     * {
@@ -72,15 +176,15 @@ input[type="text"] {
     }
     a {
         margin-left: -44px;
+        &.active {
+            background-position: center bottom;
+        }
         .icon(@path: "32x32/erase.png")
-    }
-    a:hover, a:focus, a.active {
-        background-position: center bottom;
     }
 }
 
 #top-bar {
-    background: @color4;
+    background: @color5;
     height: 45px;
     line-height: 40px;
     width: 100%;
@@ -102,6 +206,21 @@ input[type="text"] {
             background-position: center bottom;
         }
     }
+    #launcher-bar {
+        height: 41px;
+        margin: 2px;
+        max-width: 71%;
+        overflow: auto;
+        > .launcher-bar {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 2px 2px 2px 2px;
+            display: inline-block;
+            float: left;
+            height: 100%;
+            margin: 0 2px;
+            width: 55px;
+        }
+    }
     #clock {
         line-height: 1.2;
         padding: 7px 2px;
@@ -117,6 +236,7 @@ input[type="text"] {
     padding: 35px 25px;
     position: absolute;
     top: 0;
+    z-index: 900;
     * {
         color: white;
     }
